@@ -71,7 +71,7 @@ Minimize.TextWrapped = true
 
 -- Scripts:
 
-local function BSKWVGN_fake_script() -- HOP1.HOST 
+local function QEKMLB_fake_script() -- HOP1.HOST 
 	local script = Instance.new('Script', HOP1)
 
 	HOP1.MouseButton1Down:connect(function()
@@ -134,10 +134,10 @@ local function BSKWVGN_fake_script() -- HOP1.HOST
 			end
 		end
 		Teleport()
-	end
+	end)
 end
-coroutine.wrap(BSKWVGN_fake_script)()
-local function UCHY_fake_script() -- BACKGROUND.DRAG SCRIPT 
+coroutine.wrap(QEKMLB_fake_script)()
+local function SIHFD_fake_script() -- BACKGROUND.DRAG SCRIPT 
 	local script = Instance.new('LocalScript', BACKGROUND)
 
 	local UserInputService = game:GetService("UserInputService")
@@ -182,8 +182,8 @@ local function UCHY_fake_script() -- BACKGROUND.DRAG SCRIPT
 		end
 	end)
 end
-coroutine.wrap(UCHY_fake_script)()
-local function LFZC_fake_script() -- HOP2.PLAYER 
+coroutine.wrap(SIHFD_fake_script)()
+local function PGTS_fake_script() -- HOP2.PLAYER 
 	local script = Instance.new('Script', HOP2)
 
 	HOP2.MouseButton1Down:connect(function()
@@ -202,11 +202,10 @@ local function LFZC_fake_script() -- HOP2.PLAYER
 		else
 			return notify("Serverhop", "Couldn't find a server.")
 		end
-	end
 	end)
 end
-coroutine.wrap(LFZC_fake_script)()
-local function OPXWEK_fake_script() -- ScreenGui.LocalScript 
+coroutine.wrap(PGTS_fake_script)()
+local function JGSJBQ_fake_script() -- ScreenGui.LocalScript 
 	local script = Instance.new('LocalScript', ScreenGui)
 
 	local SGui = script.Parent
@@ -217,4 +216,4 @@ local function OPXWEK_fake_script() -- ScreenGui.LocalScript
 		Frame.Visible = not Frame.Visible
 	end)
 end
-coroutine.wrap(OPXWEK_fake_script)()
+coroutine.wrap(JGSJBQ_fake_script)()
