@@ -5,9 +5,8 @@
 
 local ScreenGui = Instance.new("ScreenGui")
 local BACKGROUND = Instance.new("Frame")
-local DRAGABLEHERE = Instance.new("TextLabel")
 local HOP1 = Instance.new("TextButton")
-local HOP2 = Instance.new("TextButton")
+local DRAGABLEHERE = Instance.new("TextLabel")
 local Minimize = Instance.new("TextButton")
 
 --Properties:
@@ -19,8 +18,20 @@ BACKGROUND.Name = "BACKGROUND"
 BACKGROUND.Parent = ScreenGui
 BACKGROUND.BackgroundColor3 = Color3.fromRGB(0, 0, 0)
 BACKGROUND.BorderColor3 = Color3.fromRGB(255, 255, 255)
-BACKGROUND.Position = UDim2.new(0.403052449, 0, 0.351463109, 0)
-BACKGROUND.Size = UDim2.new(0, 140, 0, 67)
+BACKGROUND.Position = UDim2.new(0.0460636616, 0, 0.159745291, 0)
+BACKGROUND.Size = UDim2.new(0, 127, 0, 51)
+
+HOP1.Name = "HOP 1"
+HOP1.Parent = BACKGROUND
+HOP1.BackgroundColor3 = Color3.fromRGB(70, 70, 70)
+HOP1.Position = UDim2.new(0.264285713, 0, 0.228760049, 0)
+HOP1.Size = UDim2.new(0, 64, 0, 35)
+HOP1.Font = Enum.Font.SourceSans
+HOP1.Text = "HOP 1"
+HOP1.TextColor3 = Color3.fromRGB(255, 255, 255)
+HOP1.TextScaled = true
+HOP1.TextSize = 14.000
+HOP1.TextWrapped = true
 
 DRAGABLEHERE.Name = "DRAGABLE HERE"
 DRAGABLEHERE.Parent = BACKGROUND
@@ -32,30 +43,6 @@ DRAGABLEHERE.Font = Enum.Font.SourceSans
 DRAGABLEHERE.Text = "SERVER HOP V2"
 DRAGABLEHERE.TextColor3 = Color3.fromRGB(255, 255, 255)
 DRAGABLEHERE.TextSize = 14.000
-
-HOP1.Name = "HOP 1"
-HOP1.Parent = BACKGROUND
-HOP1.BackgroundColor3 = Color3.fromRGB(70, 70, 70)
-HOP1.Position = UDim2.new(0, 0, 0.288461536, 0)
-HOP1.Size = UDim2.new(0, 64, 0, 35)
-HOP1.Font = Enum.Font.SourceSans
-HOP1.Text = "HOP 1"
-HOP1.TextColor3 = Color3.fromRGB(255, 255, 255)
-HOP1.TextScaled = true
-HOP1.TextSize = 14.000
-HOP1.TextWrapped = true
-
-HOP2.Name = "HOP2"
-HOP2.Parent = BACKGROUND
-HOP2.BackgroundColor3 = Color3.fromRGB(70, 70, 70)
-HOP2.Position = UDim2.new(0.528571427, 0, 0.288461536, 0)
-HOP2.Size = UDim2.new(0, 66, 0, 35)
-HOP2.Font = Enum.Font.SourceSans
-HOP2.Text = "HOP 2"
-HOP2.TextColor3 = Color3.fromRGB(255, 255, 255)
-HOP2.TextScaled = true
-HOP2.TextSize = 14.000
-HOP2.TextWrapped = true
 
 Minimize.Name = "Minimize"
 Minimize.Parent = ScreenGui
@@ -71,7 +58,7 @@ Minimize.TextWrapped = true
 
 -- Scripts:
 
-local function BLQDV_fake_script() -- HOP1.HOST 
+local function YUCAVQC_fake_script() -- HOP1.HOST 
 	local script = Instance.new('Script', HOP1)
 
 	HOP1.MouseButton1Down:connect(function()
@@ -83,7 +70,7 @@ local function BLQDV_fake_script() -- HOP1.HOST
 		function TPReturner()
 			local Site;
 			if foundAnything == "" then
-				Site = game.HttpService:JSONDecode(game:HttpGet('https://games.roblox.com/v1/games/' .. PlaceID .. '/servers/Public?sortOrder=Asc&limit=100'))
+				Site = game.HttpService:JSONDecode(game:HttpGet('https://games.roblox.com/v1/games/%s/servers/Public?sortOrder=Asc&limit=100'))
 			else
 				Site = game.HttpService:JSONDecode(game:HttpGet('https://games.roblox.com/v1/games/' .. PlaceID .. '/servers/Public?sortOrder=Asc&limit=100&cursor=' .. foundAnything))
 			end
@@ -136,8 +123,8 @@ local function BLQDV_fake_script() -- HOP1.HOST
 		Teleport()
 	end)
 end
-coroutine.wrap(BLQDV_fake_script)()
-local function YLYSUUV_fake_script() -- BACKGROUND.DRAG SCRIPT 
+coroutine.wrap(YUCAVQC_fake_script)()
+local function AUQKULN_fake_script() -- BACKGROUND.DRAG SCRIPT 
 	local script = Instance.new('LocalScript', BACKGROUND)
 
 	local UserInputService = game:GetService("UserInputService")
@@ -182,31 +169,8 @@ local function YLYSUUV_fake_script() -- BACKGROUND.DRAG SCRIPT
 		end
 	end)
 end
-coroutine.wrap(YLYSUUV_fake_script)()
-local function REQUN_fake_script() -- HOP2.PLAYER 
-	local script = Instance.new('Script', HOP2)
-
-	HOP2.MouseButton1Down:connect(function()
-			local servers = {}
-			local req = httprequest({Url = string.format("https://games.roblox.com/v1/games/%s/servers/Public?sortOrder=Asc&limit=100", PlaceId)})
-			local body = HttpService:JSONDecode(req.Body)
-			if body and body.data then
-				for i, v in next, body.data do
-					if type(v) == "table" and tonumber(v.playing) and tonumber(v.maxPlayers) and v.playing < v.maxPlayers and v.id ~= JobId then
-						table.insert(servers, 1, v.id)
-					end 
-				end
-			end
-			if #servers > 0 then
-				TeleportService:TeleportToPlaceInstance(PlaceId, servers[math.random(1, #servers)], Players.LocalPlayer)
-			else
-				return notify("Serverhop", "Couldn't find a server.")
-		end
-	end)
-	
-end
-coroutine.wrap(REQUN_fake_script)()
-local function NQZECB_fake_script() -- ScreenGui.LocalScript 
+coroutine.wrap(AUQKULN_fake_script)()
+local function TRXVX_fake_script() -- ScreenGui.LocalScript 
 	local script = Instance.new('LocalScript', ScreenGui)
 
 	local SGui = script.Parent
@@ -217,4 +181,4 @@ local function NQZECB_fake_script() -- ScreenGui.LocalScript
 		Frame.Visible = not Frame.Visible
 	end)
 end
-coroutine.wrap(NQZECB_fake_script)()
+coroutine.wrap(TRXVX_fake_script)()
