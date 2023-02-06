@@ -71,7 +71,7 @@ Minimize.TextWrapped = true
 
 -- Scripts:
 
-local function FSUO_fake_script() -- HOP1.HOST 
+local function MAYBI_fake_script() -- HOP1.HOST 
 	local script = Instance.new('Script', HOP1)
 
 	HOP1.MouseButton1Down:connect(function()
@@ -136,8 +136,8 @@ local function FSUO_fake_script() -- HOP1.HOST
 		Teleport()
 	end)
 end
-coroutine.wrap(FSUO_fake_script)()
-local function BXABOCL_fake_script() -- BACKGROUND.DRAG SCRIPT 
+coroutine.wrap(MAYBI_fake_script)()
+local function SMYGYQY_fake_script() -- BACKGROUND.DRAG SCRIPT 
 	local script = Instance.new('LocalScript', BACKGROUND)
 
 	local UserInputService = game:GetService("UserInputService")
@@ -182,32 +182,33 @@ local function BXABOCL_fake_script() -- BACKGROUND.DRAG SCRIPT
 		end
 	end)
 end
-coroutine.wrap(BXABOCL_fake_script)()
-local function ZHBRJL_fake_script() -- HOP2.PLAYER 
+coroutine.wrap(SMYGYQY_fake_script)()
+local function AIHFKYD_fake_script() -- HOP2.PLAYER 
 	local script = Instance.new('Script', HOP2)
 
 	HOP2.MouseButton1Down:connect(function()
-		local servers = {}
-		local req = httprequest({Url = string.format("https://games.roblox.com/v1/games/%s/servers/Public?sortOrder=Asc&limit=100", PlaceId)})
-		local body = HttpService:JSONDecode(req.Body)
-		if body and body.data then
-			for i, v in next, body.data do
-				if type(v) == "table" and tonumber(v.playing) and tonumber(v.maxPlayers) and v.playing < v.maxPlayers and v.id ~= JobId then
-					table.insert(servers, 1, v.id)
-				end 
+		if httprequest then
+			local servers = {}
+			local req = httprequest({Url = string.format("https://games.roblox.com/v1/games/%s/servers/Public?sortOrder=Asc&limit=100", PlaceId)})
+			local body = HttpService:JSONDecode(req.Body)
+			if body and body.data then
+				for i, v in next, body.data do
+					if type(v) == "table" and tonumber(v.playing) and tonumber(v.maxPlayers) and v.playing < v.maxPlayers and v.id ~= JobId then
+						table.insert(servers, 1, v.id)
+					end 
+				end
+			end
+			if #servers > 0 then
+				TeleportService:TeleportToPlaceInstance(PlaceId, servers[math.random(1, #servers)], Players.LocalPlayer)
+			else
+				return notify("Serverhop", "Couldn't find a server.")
 			end
 		end
-		if #servers > 0 then
-			TeleportService:TeleportToPlaceInstance(PlaceId, servers[math.random(1, #servers)], Players.LocalPlayer)
-		else
-			return notify("Serverhop", "Couldn't find a server.")
-		end
-	end
 	end)
 	
 end
-coroutine.wrap(ZHBRJL_fake_script)()
-local function UVQTER_fake_script() -- ScreenGui.LocalScript 
+coroutine.wrap(AIHFKYD_fake_script)()
+local function CKLRBY_fake_script() -- ScreenGui.LocalScript 
 	local script = Instance.new('LocalScript', ScreenGui)
 
 	local SGui = script.Parent
@@ -218,4 +219,4 @@ local function UVQTER_fake_script() -- ScreenGui.LocalScript
 		Frame.Visible = not Frame.Visible
 	end)
 end
-coroutine.wrap(UVQTER_fake_script)()
+coroutine.wrap(CKLRBY_fake_script)()
